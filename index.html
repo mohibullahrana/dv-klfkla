@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCU Post Generator | Instagram-Style Card</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>DCU Post Generator</h1>
+            <p>Create your personalized Dhaka Central University Instagram-style post</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Input Panel -->
+            <section class="input-panel">
+                <h2>Create Your Post</h2>
+
+                <!-- Context / Quote -->
+                <div class="form-group">
+                    <label for="contextText">
+                        Context / Quote
+                        <span class="char-counter" id="contextCounter">0 / 170</span>
+                    </label>
+                    <textarea
+                        id="contextText"
+                        maxlength="170"
+                        placeholder="Enter your quote or message (Bangla / English / Mixed)..."
+                        rows="5"
+                    ></textarea>
+                </div>
+
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="nameText">
+                        Name
+                        <span class="char-counter" id="nameCounter">0 / 16</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="nameText"
+                        maxlength="16"
+                        placeholder="Your full name"
+                    >
+                </div>
+
+                <!-- Identity -->
+                <div class="form-group">
+                    <label for="identityText">
+                        Identity
+                        <span class="char-counter" id="identityCounter">0 / 40</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="identityText"
+                        maxlength="40"
+                        placeholder="e.g. Student, Dhaka Central University"
+                    >
+                </div>
+
+                <!-- Photo Upload -->
+                <div class="form-group">
+                    <label for="photoInput">
+                        Your Photograph
+                        <span class="hint">(Please upload a background removed file)</span>
+                    </label>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="photoInput" accept="image/*" hidden>
+                        <div class="upload-placeholder" id="uploadPlaceholder">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                            <span>Click to upload photo</span>
+                        </div>
+                        <div class="upload-preview" id="uploadPreview" style="display: none;">
+                            <img id="previewThumb" alt="Preview">
+                            <span id="fileName"></span>
+                            <button type="button" class="btn-change" id="changePhoto">Change</button>
+                        </div>
+                    </div>
+                    <a href="https://www.remove.bg/" target="_blank" rel="noopener" class="remove-bg-link">
+                        Make photo background removed →
+                    </a>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary" id="generateBtn">Generate Post</button>
+                </div>
+            </section>
+
+            <!-- Output Panel -->
+            <section class="output-panel">
+                <h2>Preview</h2>
+                <div class="preview-wrapper">
+                    <div class="canvas-container" id="canvasContainer">
+                        <canvas id="outputCanvas" width="1080" height="1080"></canvas>
+                        <div class="placeholder-msg" id="placeholderMsg">
+                            Your generated post will appear here
+                        </div>
+                    </div>
+                </div>
+                <div class="output-actions">
+                    <button type="button" class="btn btn-secondary" id="resetBtn">New / Reset</button>
+                    <button type="button" class="btn btn-download" id="downloadBtn" disabled>Download JPG</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>Developed by Mhb Rana</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
